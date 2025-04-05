@@ -2,49 +2,205 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pink_bg"
     tools:context=".ui.MenuActivity">
 
-    <GridLayout
-        android:id="@+id/menuGrid"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/titleTextView"
+        style="@style/txt_menu"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:padding="24dp"
-        android:alignmentMode="alignMargins"
-        android:rowCount="2"
-        android:useDefaultMargins="true">
+        android:layout_marginTop="48dp"
+        android:gravity="center"
+        android:text="Try to Choose One\nof This, Sayang!"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView">
+
+        <Button
+            android:id="@+id/go_to_letter"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/btn_menu_bg"
+            android:backgroundTint="@color/pink_main"
+            android:drawableTop="@drawable/ic_love_letter"
+            android:gravity="center"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp" />
+
+        <Button
+            android:id="@+id/go_to_vn"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/btn_menu_bg"
+            android:backgroundTint="@color/pink_main"
+            android:drawableTop="@drawable/ic_voice"
+            android:gravity="center"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <Button
+            android:id="@+id/go_to_gallery"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/btn_menu_bg"
+            android:backgroundTint="@color/pink_main"
+            android:drawableTop="@drawable/ic_gallery"
+            android:gravity="center"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp" />
+
+        <Button
+            android:id="@+id/go_to_quote"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/btn_menu_bg"
+            android:backgroundTint="@color/pink_main"
+            android:drawableTop="@drawable/ic_quote"
+            android:gravity="center"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="56dp"
+        android:background="@drawable/bg_music_player"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2">
+
+        <ImageView
+            android:id="@+id/rotating_cake"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="16dp">
+            android:src="@drawable/ic_rotating_cake"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.107"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Quotes"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:paddingTop="8dp" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        <ImageView
+            android:id="@+id/play_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/ic_play_music"
+            app:layout_constraintStart_toEndOf="@+id/rotating_cake"
+            app:layout_constraintTop_toTopOf="@+id/rotating_cake" />
 
-        <!-- Ulangi 3x lagi untuk fitur lainnya -->
-    </GridLayout>
+        <ImageView
+            android:id="@+id/stop_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/ic_stop_music"
+            app:layout_constraintBottom_toBottomOf="@+id/rotating_cake"
+            app:layout_constraintStart_toEndOf="@+id/rotating_cake" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/txt_stop_music"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="play and stop\nmusic here"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.512" />
+    <!--    <LinearLayout-->
+<!--        android:id="@+id/buttonContainer"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/statusTextView"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/titleTextView">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/playButton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:text="Play" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/stopButton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Stop" />-->
+<!--    </LinearLayout>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/statusTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:text="Status: Not Playing"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/goToSecondButton"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/buttonContainer" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/goToSecondButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:text="Go to Second Activity"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/statusTextView" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

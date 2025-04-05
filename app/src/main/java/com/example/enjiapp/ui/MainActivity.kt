@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private val targetDate: Calendar = Calendar.getInstance().apply {
         set(Calendar.YEAR, 2025)
         set(Calendar.MONTH, Calendar.APRIL)
-        set(Calendar.DAY_OF_MONTH, 2)
+        set(Calendar.DAY_OF_MONTH, 1)
         set(Calendar.HOUR_OF_DAY, 0)
         set(Calendar.MINUTE, 0)
         set(Calendar.SECOND, 0)
@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun intentOne() {
-        startActivity(Intent(this, WelcomeActivity::class.java))
+        startActivity(Intent(this, MenuActivity::class.java))
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         finish()
     }

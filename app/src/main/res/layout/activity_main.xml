@@ -146,13 +146,16 @@
 
     <Button
         android:id="@+id/btnNext"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
         android:backgroundTint="@color/pink_main"
+        android:background="@drawable/rounded_button"
+        android:textAllCaps="false"
         android:text="next"
-        android:textSize="16dp"
+        android:textSize="14sp"
         android:fontFamily="@font/lato_bold"
+        android:textColor="@color/pink_bg"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

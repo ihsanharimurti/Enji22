@@ -66,7 +66,7 @@ class WelcomeActivity : AppCompatActivity() {
                     this.layoutParams = layoutParams
 
                     setOnClickListener {
-                        startActivity(Intent(this@WelcomeActivity, ImageShowActivity::class.java))
+                        startActivity(Intent(this@WelcomeActivity, MenuActivity::class.java))
                         finish()
                     }
                 }

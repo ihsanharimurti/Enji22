@@ -10,49 +10,49 @@ import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.enjiapp.R
 import com.example.enjiapp.adapter.ImageAdapter
+import com.example.enjiapp.databinding.ActivityImageShowBinding
 import kotlin.math.abs
 
 class ImageShowActivity : AppCompatActivity() {
 
-    private lateinit var  viewPager2: ViewPager2
-    private lateinit var handler : Handler
-    private lateinit var imageList:ArrayList<Int>
+    private lateinit var binding: ActivityImageShowBinding
+    private lateinit var handler: Handler
+    private lateinit var imageList: ArrayList<Int>
     private lateinit var adapter: ImageAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_image_show)
+        binding = ActivityImageShowBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         init()
         MainActivity.ScreenUtil.setupFullScreen(this)
         setUpTransformer()
 
-        viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+        binding.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 handler.removeCallbacks(runnable)
-                handler.postDelayed(runnable , 2000)
+                handler.postDelayed(runnable, 2000)
             }
         })
     }
 
     override fun onPause() {
         super.onPause()
-
         handler.removeCallbacks(runnable)
     }
 
     override fun onResume() {
         super.onResume()
-
-        handler.postDelayed(runnable , 2000)
+        handler.postDelayed(runnable, 2000)
     }
 
     private val runnable = Runnable {
-        viewPager2.currentItem = viewPager2.currentItem + 1
+        binding.viewPager2.currentItem = binding.viewPager2.currentItem + 1
     }
 
-    private fun setUpTransformer(){
+    private fun setUpTransformer() {
         val transformer = CompositePageTransformer()
         transformer.addTransformer(MarginPageTransformer(40))
         transformer.addTransformer { page, position ->
@@ -60,11 +60,10 @@ class ImageShowActivity : AppCompatActivity() {
             page.scaleY = 0.85f + r * 0.14f
         }
 
-        viewPager2.setPageTransformer(transformer)
+        binding.viewPager2.setPageTransformer(transformer)
     }
 
-    private fun init(){
-        viewPager2 = findViewById(R.id.viewPager2)
+    private fun init() {
         handler = Handler(Looper.myLooper()!!)
         imageList = ArrayList()
 
@@ -77,14 +76,12 @@ class ImageShowActivity : AppCompatActivity() {
         imageList.add(R.drawable.seven)
         imageList.add(R.drawable.eight)
 
+        adapter = ImageAdapter(imageList, binding.viewPager2)
 
-        adapter = ImageAdapter(imageList, viewPager2)
-
-        viewPager2.adapter = adapter
-        viewPager2.offscreenPageLimit = 3
-        viewPager2.clipToPadding = false
-        viewPager2.clipChildren = false
-        viewPager2.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
-
+        binding.viewPager2.adapter = adapter
+        binding.viewPager2.offscreenPageLimit = 3
+        binding.viewPager2.clipToPadding = false
+        binding.viewPager2.clipChildren = false
+        binding.viewPager2.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
     }
 }
