@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun intentOne() {
-        startActivity(Intent(this, MenuActivity::class.java))
+        startActivity(Intent(this, WelcomeActivity::class.java))
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         finish()
     }

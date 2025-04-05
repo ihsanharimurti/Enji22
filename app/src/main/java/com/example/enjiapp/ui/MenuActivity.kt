@@ -57,6 +57,7 @@ class MenuActivity : AppCompatActivity() {
         val intent = Intent(this, MusicService::class.java)
         startService(intent)
         bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE)
+        MainActivity.ScreenUtil.setupFullScreen(this)
 
         // Register broadcast receiver
         registerReceiver(playbackReceiver, IntentFilter(MusicService.PLAYBACK_STATUS_CHANGED))
@@ -65,6 +66,9 @@ class MenuActivity : AppCompatActivity() {
         setupButtonListeners()
     }
 
+    private fun animateIntent(){
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+    }
     private fun setupButtonListeners() {
         binding.playButton.setOnClickListener {
             musicService?.playGlobalMusic(R.raw.hbd_piano)
@@ -76,19 +80,23 @@ class MenuActivity : AppCompatActivity() {
 
         binding.goToGallery.setOnClickListener {
             startActivity(Intent(this, ImageShowActivity::class.java))
+            animateIntent()
         }
 
         binding.goToQuote.setOnClickListener {
             startActivity(Intent(this, QuotesActivity::class.java))
+            animateIntent()
         }
 
         binding.goToLetter.setOnClickListener {
             startActivity(Intent(this, LetterActivity::class.java))
+            animateIntent()
         }
 
         binding.goToVn.setOnClickListener {
             musicService?.stopMusic()
             startActivity(Intent(this, VoiceActivity::class.java))
+            animateIntent()
         }
 
     }
@@ -117,6 +125,11 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+    }
 
     override fun onResume() {
         super.onResume()

@@ -38,6 +38,11 @@ class ImageShowActivity : AppCompatActivity() {
         })
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+    }
+
     override fun onPause() {
         super.onPause()
         handler.removeCallbacks(runnable)
@@ -68,13 +73,19 @@ class ImageShowActivity : AppCompatActivity() {
         imageList = ArrayList()
 
         imageList.add(R.drawable.one)
+        imageList.add(R.drawable.sapi)
         imageList.add(R.drawable.two)
         imageList.add(R.drawable.three)
         imageList.add(R.drawable.four)
+        imageList.add(R.drawable.bandungan)
         imageList.add(R.drawable.five)
+        imageList.add(R.drawable.lego)
+        imageList.add(R.drawable.kp)
         imageList.add(R.drawable.six)
         imageList.add(R.drawable.seven)
+        imageList.add(R.drawable.kkl)
         imageList.add(R.drawable.eight)
+        imageList.add(R.drawable.matahari)
 
         adapter = ImageAdapter(imageList, binding.viewPager2)
 

@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/txt_polaroid"
-        android:text="Here's  8 polaroid\nphoto of us"
+        android:text="Here are some polaroid\nphotos of us"
         app:layout_constraintBottom_toTopOf="@+id/viewPager2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I Love You!"
+        android:text="cheers to every memory we've made\ncan't wait to create more with you, sayang\ni love you!"
         style="@style/txt_polaroid"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

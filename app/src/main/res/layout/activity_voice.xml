@@ -11,7 +11,8 @@
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="cursive"
+        android:layout_marginTop="180dp"
+        android:fontFamily="@font/cormorant_garamond_bold"
         android:gravity="center"
         android:text="my voice note\nfor you"
         android:textColor="@color/pink_main"
@@ -28,12 +29,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="24dp"
-        app:cardBackgroundColor="#FFECF1"
+        app:cardBackgroundColor="#FFECF0"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/statusTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView">
@@ -49,10 +49,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="16dp"
-                android:fontFamily="cursive"
+                android:fontFamily="@font/cormorant_garamond_bold"
                 android:text="Listen to my heart..."
                 android:textColor="@color/pink_main"
-                android:textSize="22sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -61,64 +61,58 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <Button
+                <ImageView
                     android:id="@+id/playButton"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_height="64dp"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_play_voice"
+                    android:contentDescription="Play"
                     android:backgroundTint="@color/pink_main"
-                    android:text="Play"
-                    app:cornerRadius="24dp"
-                     />
+                    android:padding="16dp"
+                    android:scaleType="centerInside"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
 
-                <Button
+                <ImageView
                     android:id="@+id/pauseResumeButton"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_height="64dp"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_pause_voice"
+                    android:contentDescription="Pause"
                     android:backgroundTint="@color/pink_main"
-                    android:enabled="false"
-                    android:text="Pause"
-                    app:cornerRadius="24dp"
-                     />
+                    android:padding="16dp"
+                    android:scaleType="centerInside"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:enabled="false" />
 
-                <Button
+                <ImageView
                     android:id="@+id/stopButton"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="64dp"
                     android:layout_weight="1"
+                    android:src="@drawable/ic_stop_voice"
+                    android:contentDescription="Stop"
                     android:backgroundTint="@color/pink_main"
-                    android:enabled="false"
-                    android:text="Stop"
-                    app:cornerRadius="24dp"
-                    />
+                    android:padding="16dp"
+                    android:scaleType="centerInside"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:enabled="false" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/statusTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Status: Stopped"
-        android:textColor="@color/pink_main"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/infoTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/audioControlsCard" />
 
     <TextView
         android:id="@+id/infoTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:fontFamily="cursive"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/cormorant_garamond_italic"
         android:text="A message from my heart to yours..."
         android:textAlignment="center"
         android:textColor="@color/pink_main"
@@ -126,25 +120,9 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/statusTextView"
-        app:layout_constraintBottom_toTopOf="@+id/backButton" />
+        app:layout_constraintTop_toBottomOf="@+id/audioControlsCard" />
 
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
-        android:backgroundTint="#FF9BBF"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
-        android:text="Back"
-        android:textColor="#FFFFFF"
-        app:cornerRadius="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoTextView" />
+
 
 
 

@@ -19,6 +19,7 @@ class QuotesActivity : AppCompatActivity() {
         // Initialize view binding
         binding = ActivityQuotesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        MainActivity.ScreenUtil.setupFullScreen(this)
 
         // Initialize affirmations list
         initializeAffirmations()
@@ -124,6 +125,11 @@ class QuotesActivity : AppCompatActivity() {
             "You are love, in its purest form."
         )
 
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
 
     private fun displayAffirmation(index: Int) {

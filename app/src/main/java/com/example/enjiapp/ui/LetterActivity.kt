@@ -16,6 +16,8 @@ class LetterActivity : AppCompatActivity() {
         binding = ActivityLetterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        MainActivity.ScreenUtil.setupFullScreen(this)
+
         setupPageContent()
         setupButtons()
     }
@@ -29,6 +31,11 @@ class LetterActivity : AppCompatActivity() {
         binding.pageContent.text = birthdayMessages[currentPage]
         updatePageNumber()
         updateButtonVisibility()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
 
     private fun setupButtons() {

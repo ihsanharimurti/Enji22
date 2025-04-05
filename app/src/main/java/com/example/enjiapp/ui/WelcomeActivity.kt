@@ -8,6 +8,7 @@ import android.view.Gravity
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import com.example.enjiapp.R
 import com.example.enjiapp.databinding.ActivityWelcomeBinding
@@ -46,31 +47,30 @@ class WelcomeActivity : AppCompatActivity() {
                 handler.postDelayed({ showNext() }, delayMillis)
             } else {
                 val button = Button(this).apply {
-                    text = "Next ➡️"
+                    text = "next"
                     textSize = 18f
                     isAllCaps = false
                     setTextColor(ContextCompat.getColor(context, R.color.white))
                     setBackgroundResource(R.drawable.rounded_button)
                     setPadding(40, 20, 40, 20)
 
-                    val layoutParams = LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
+                    val layoutParams = ConstraintLayout.LayoutParams(
+                        ConstraintLayout.LayoutParams.WRAP_CONTENT,
+                        ConstraintLayout.LayoutParams.WRAP_CONTENT
                     ).apply {
-                        gravity = Gravity.CENTER
-                        topMargin = 40
-                        bottomMargin = 40
-                        marginStart = 40
-                        marginEnd = 40
+                        topToBottom = binding.welcomeText.id
+                        startToStart = ConstraintLayout.LayoutParams.PARENT_ID
+                        endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
+                        topMargin = 160
                     }
                     this.layoutParams = layoutParams
 
                     setOnClickListener {
                         startActivity(Intent(this@WelcomeActivity, MenuActivity::class.java))
+                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                         finish()
                     }
                 }
-
 
                 binding.welcomeLayout.addView(button)
             }
